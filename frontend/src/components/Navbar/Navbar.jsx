@@ -1,35 +1,39 @@
-import { Layout, Menu } from "antd";
 import { Link, useLocation } from "react-router-dom";
 
-const { Header } = Layout;
-
 export default function Navbar() {
-  const location = useLocation();
+  const { pathname } = useLocation();
+
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "Manga", path: "/Manga" },
+    { name: "Anime", path: "/Anime" },
+  ];
 
   return (
-    <Header style={{ position: "sticky", top: 0, zIndex: 1000 }}>
-      <div
-        style={{
-          float: "left",
-          color: "white",
-          fontSize: 22,
-          marginRight: 40,
-          fontWeight: "bold",
-        }}
-      >
-        MyApp
-      </div>
+    <header
+      className="bg-slate-800/95 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-slate-700/50"
+    >
+      <div className="max-w-7xl mx-auto flex items-center h-16 px-6">
+        {/* Logo */}
+        <h1 className="text-xl font-bold text-white tracking-wide">AnimeARC</h1>
 
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        selectedKeys={[location.pathname]}
-        items={[
-          { label: <Link to="/">Home</Link>, key: "/" },
-          { label: <Link to="/about">About</Link>, key: "/about" },
-          { label: <Link to="/contact">Contact</Link>, key: "/contact" },
-        ]}
-      />
-    </Header>
+        {/* Menu */}
+        <nav className="flex-1 flex justify-center space-x-8 font-medium">
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`transition-all duration-200 ${
+                pathname === item.path
+                  ? "text-white border-b-2 border-white pb-1"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
 }

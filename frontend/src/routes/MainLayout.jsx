@@ -8,7 +8,7 @@ export default function MainLayout() {
     <Layout style={{ minHeight: "100vh" }}>
       <Navbar />
 
-      <Layout.Content style={{ padding: "20px" }}>
+      <Layout.Content>
         <Outlet />
       </Layout.Content>
 

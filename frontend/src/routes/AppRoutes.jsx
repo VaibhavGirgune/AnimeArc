@@ -5,9 +5,9 @@ import { Spin } from "antd";
 
 // Lazy Pages
 const Home = lazy(() => import("../pages/Home/Home"));
-const About = lazy(() => import("../pages/About/About"));
-const Contact = lazy(() => import("../pages/Contact/Contact"));
-const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
+const Anime = lazy(() => import("../pages/Anime/Anime"));
+const Manga = lazy(() => import("../pages/Manga/Manga"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const loader = (
   <div style={{ display: "flex", justifyContent: "center", paddingTop: 50 }}>
@@ -29,18 +29,18 @@ const AppRoutes = createBrowserRouter([
         ),
       },
       {
-        path: "about",
+        path: "Manga",
         element: (
           <Suspense fallback={loader}>
-            <About />
+            <Manga />
           </Suspense>
         ),
       },
       {
-        path: "contact",
+        path: "Anime",
         element: (
           <Suspense fallback={loader}>
-            <Contact />
+            <Anime />
           </Suspense>
         ),
       },
