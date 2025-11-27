@@ -9,7 +9,7 @@ export default function Navbar() {
     { name: "Anime", path: "/Anime" },
   ];
 
-  return (
+  return (  
     <header
       className="bg-slate-800/95 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-slate-700/50"
     >
